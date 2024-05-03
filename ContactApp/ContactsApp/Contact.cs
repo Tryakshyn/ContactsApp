@@ -13,23 +13,23 @@ namespace ContactsApp
     {
         /// <summary>
         /// Идентификатор контакта
-        /// <summary>
+        /// </summary>
         private static int contactId = -1;
         /// <summary>
         /// Имя
-        /// <summary>
+        /// </summary>
         private string firstName;
         /// <summary>
         /// Фамилия
-        /// <summary>
+        /// </summary>
         private string lastName;
         /// <summary>
         /// Телефон
-        /// <summary>
+        /// </summary>
         private string phone;
         /// <summary>
         /// Электронная почта
-        /// <summary>
+        /// </summary>
         private string email;
 
         public int ContactId
