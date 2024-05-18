@@ -35,21 +35,6 @@ namespace ContactsApp
         /// Дата рождения
         /// </summary>
         private DateTime birthday;
-        public string VkId
-        {
-            get
-            {
-                return vkId;
-            }
-            set
-            {
-                if (value.Length > 15)
-                {
-                    throw new ArgumentException("Id VK не может быть длинее 15 символов");
-                }
-                vkId = value;
-            }
-        }
         public string FirstName
         {
             get
@@ -81,29 +66,6 @@ namespace ContactsApp
                 lastName = value;
             }
         }
-        public string Phone
-        {
-            get
-            {
-                return phone;
-            }
-            set
-            {
-                phone = value;
-            }
-        }
-
-        public string Email
-        {
-            get 
-            { 
-                return email; 
-            }
-            set 
-            { 
-                email = value; 
-            }
-        }
         public DateTime Birthday
         {
             get
@@ -116,10 +78,53 @@ namespace ContactsApp
                 {
                     throw new ArgumentException("Некорректная дата рождения! Год не может быть ранее, чем 1900 год");
                 }
-                else if (birthday != value)
+                birthday = value;
+            }
+        }
+        public string Phone
+        {
+            get
+            {
+                return phone;
+            }
+            set
+            {
+                if (value.Length == 12 && value[0] == '+' && value[1] == '7')
                 {
-                    birthday = value;
+                    phone = value;
                 }
+                else throw new ArgumentException("Номер должен состоять из 12 цифр и начинаться с +7");
+            }
+        }
+
+        public string Email
+        {
+            get 
+            { 
+                return email; 
+            }
+            set 
+            { 
+               if (value.Length < 50 && value.Contains("@"))
+                {
+                    email = value;
+                }
+                else throw new ArgumentException("Email не может быть длинее 50 символов и должен обязательно содержать символ @ ");
+            }
+        }
+        public string VkId
+        {
+            get
+            {
+                return vkId;
+            }
+            set
+            {
+                if (value.Length > 15)
+                {
+                    throw new ArgumentException("Id VK не может быть длинее 15 символов");
+                }
+                vkId = value;
             }
         }
         public Contact(string firstName, string lastName, string phone, string email, DateTime birthday, string vkId)

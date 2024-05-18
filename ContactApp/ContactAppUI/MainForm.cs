@@ -15,6 +15,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ContactAppUI
 {
+    /// <summary>
+    /// Основная форма приложения
+    /// </summary>
     public partial class MainForm : Form
     {
         public Project _contactsListProject;

@@ -40,12 +40,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LabelSearch = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.contactListBox = new System.Windows.Forms.ListBox();
-            this.toolStripContactsApp = new System.Windows.Forms.ToolStrip();
-            this.AddContactButton = new System.Windows.Forms.ToolStripButton();
-            this.EditContactButton = new System.Windows.Forms.ToolStripButton();
-            this.RemoveContactButton = new System.Windows.Forms.ToolStripButton();
+            this.groupBoxContactsApp = new System.Windows.Forms.GroupBox();
             this.birthdayTimePicker = new System.Windows.Forms.DateTimePicker();
             this.labelBirthday = new System.Windows.Forms.Label();
             this.labelVkId = new System.Windows.Forms.Label();
@@ -58,8 +53,13 @@
             this.lastnameBox = new System.Windows.Forms.TextBox();
             this.labelFirstName = new System.Windows.Forms.Label();
             this.firstnameBox = new System.Windows.Forms.TextBox();
+            this.contactListBox = new System.Windows.Forms.ListBox();
+            this.toolStripContactsApp = new System.Windows.Forms.ToolStrip();
+            this.AddContactButton = new System.Windows.Forms.ToolStripButton();
+            this.EditContactButton = new System.Windows.Forms.ToolStripButton();
+            this.RemoveContactButton = new System.Windows.Forms.ToolStripButton();
             this.menuStripContactsApp.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxContactsApp.SuspendLayout();
             this.toolStripContactsApp.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -132,12 +132,15 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.ToolTipText = "43121";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // LabelSearch
@@ -156,81 +159,28 @@
             this.textBoxSearch.Size = new System.Drawing.Size(196, 20);
             this.textBoxSearch.TabIndex = 1;
             // 
-            // groupBox1
+            // groupBoxContactsApp
             // 
-            this.groupBox1.Controls.Add(this.birthdayTimePicker);
-            this.groupBox1.Controls.Add(this.labelBirthday);
-            this.groupBox1.Controls.Add(this.labelVkId);
-            this.groupBox1.Controls.Add(this.vkidBox);
-            this.groupBox1.Controls.Add(this.labelEmail);
-            this.groupBox1.Controls.Add(this.labelPhone);
-            this.groupBox1.Controls.Add(this.labelLastName);
-            this.groupBox1.Controls.Add(this.emailBox);
-            this.groupBox1.Controls.Add(this.phoneBox);
-            this.groupBox1.Controls.Add(this.lastnameBox);
-            this.groupBox1.Controls.Add(this.labelFirstName);
-            this.groupBox1.Controls.Add(this.firstnameBox);
-            this.groupBox1.Controls.Add(this.contactListBox);
-            this.groupBox1.Controls.Add(this.LabelSearch);
-            this.groupBox1.Controls.Add(this.textBoxSearch);
-            this.groupBox1.Location = new System.Drawing.Point(12, 27);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(498, 355);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            // 
-            // contactListBox
-            // 
-            this.contactListBox.FormattingEnabled = true;
-            this.contactListBox.Location = new System.Drawing.Point(9, 39);
-            this.contactListBox.Name = "contactListBox";
-            this.contactListBox.Size = new System.Drawing.Size(223, 303);
-            this.contactListBox.TabIndex = 2;
-            this.contactListBox.SelectedIndexChanged += new System.EventHandler(this.contactListBox_SelectedIndexChanged);
-            // 
-            // toolStripContactsApp
-            // 
-            this.toolStripContactsApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.toolStripContactsApp.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStripContactsApp.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddContactButton,
-            this.EditContactButton,
-            this.RemoveContactButton});
-            this.toolStripContactsApp.Location = new System.Drawing.Point(12, 388);
-            this.toolStripContactsApp.Name = "toolStripContactsApp";
-            this.toolStripContactsApp.Size = new System.Drawing.Size(81, 25);
-            this.toolStripContactsApp.TabIndex = 2;
-            this.toolStripContactsApp.Text = "toolStrip1";
-            // 
-            // AddContactButton
-            // 
-            this.AddContactButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.AddContactButton.Image = ((System.Drawing.Image)(resources.GetObject("AddContactButton.Image")));
-            this.AddContactButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.AddContactButton.Name = "AddContactButton";
-            this.AddContactButton.Size = new System.Drawing.Size(23, 22);
-            this.AddContactButton.Text = "Создать новый контакт";
-            this.AddContactButton.Click += new System.EventHandler(this.AddContactButton_Click);
-            // 
-            // EditContactButton
-            // 
-            this.EditContactButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.EditContactButton.Image = ((System.Drawing.Image)(resources.GetObject("EditContactButton.Image")));
-            this.EditContactButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.EditContactButton.Name = "EditContactButton";
-            this.EditContactButton.Size = new System.Drawing.Size(23, 22);
-            this.EditContactButton.Text = "Редактировать текущий контакт";
-            this.EditContactButton.Click += new System.EventHandler(this.EditContactButton_Click);
-            // 
-            // RemoveContactButton
-            // 
-            this.RemoveContactButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.RemoveContactButton.Image = ((System.Drawing.Image)(resources.GetObject("RemoveContactButton.Image")));
-            this.RemoveContactButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.RemoveContactButton.Name = "RemoveContactButton";
-            this.RemoveContactButton.Size = new System.Drawing.Size(23, 22);
-            this.RemoveContactButton.Text = "Удалить текущий контакт";
-            this.RemoveContactButton.Click += new System.EventHandler(this.RemoveContactButton_Click);
+            this.groupBoxContactsApp.Controls.Add(this.birthdayTimePicker);
+            this.groupBoxContactsApp.Controls.Add(this.labelBirthday);
+            this.groupBoxContactsApp.Controls.Add(this.labelVkId);
+            this.groupBoxContactsApp.Controls.Add(this.vkidBox);
+            this.groupBoxContactsApp.Controls.Add(this.labelEmail);
+            this.groupBoxContactsApp.Controls.Add(this.labelPhone);
+            this.groupBoxContactsApp.Controls.Add(this.labelLastName);
+            this.groupBoxContactsApp.Controls.Add(this.emailBox);
+            this.groupBoxContactsApp.Controls.Add(this.phoneBox);
+            this.groupBoxContactsApp.Controls.Add(this.lastnameBox);
+            this.groupBoxContactsApp.Controls.Add(this.labelFirstName);
+            this.groupBoxContactsApp.Controls.Add(this.firstnameBox);
+            this.groupBoxContactsApp.Controls.Add(this.contactListBox);
+            this.groupBoxContactsApp.Controls.Add(this.LabelSearch);
+            this.groupBoxContactsApp.Controls.Add(this.textBoxSearch);
+            this.groupBoxContactsApp.Location = new System.Drawing.Point(12, 27);
+            this.groupBoxContactsApp.Name = "groupBoxContactsApp";
+            this.groupBoxContactsApp.Size = new System.Drawing.Size(498, 355);
+            this.groupBoxContactsApp.TabIndex = 1;
+            this.groupBoxContactsApp.TabStop = false;
             // 
             // birthdayTimePicker
             // 
@@ -328,21 +278,74 @@
             this.firstnameBox.Size = new System.Drawing.Size(180, 20);
             this.firstnameBox.TabIndex = 41;
             // 
+            // contactListBox
+            // 
+            this.contactListBox.FormattingEnabled = true;
+            this.contactListBox.Location = new System.Drawing.Point(9, 39);
+            this.contactListBox.Name = "contactListBox";
+            this.contactListBox.Size = new System.Drawing.Size(223, 303);
+            this.contactListBox.TabIndex = 2;
+            this.contactListBox.SelectedIndexChanged += new System.EventHandler(this.contactListBox_SelectedIndexChanged);
+            // 
+            // toolStripContactsApp
+            // 
+            this.toolStripContactsApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.toolStripContactsApp.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStripContactsApp.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddContactButton,
+            this.EditContactButton,
+            this.RemoveContactButton});
+            this.toolStripContactsApp.Location = new System.Drawing.Point(12, 388);
+            this.toolStripContactsApp.Name = "toolStripContactsApp";
+            this.toolStripContactsApp.Size = new System.Drawing.Size(81, 25);
+            this.toolStripContactsApp.TabIndex = 2;
+            this.toolStripContactsApp.Text = "toolStrip1";
+            // 
+            // AddContactButton
+            // 
+            this.AddContactButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.AddContactButton.Image = ((System.Drawing.Image)(resources.GetObject("AddContactButton.Image")));
+            this.AddContactButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AddContactButton.Name = "AddContactButton";
+            this.AddContactButton.Size = new System.Drawing.Size(23, 22);
+            this.AddContactButton.Text = "Создать новый контакт";
+            this.AddContactButton.Click += new System.EventHandler(this.AddContactButton_Click);
+            // 
+            // EditContactButton
+            // 
+            this.EditContactButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.EditContactButton.Image = ((System.Drawing.Image)(resources.GetObject("EditContactButton.Image")));
+            this.EditContactButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.EditContactButton.Name = "EditContactButton";
+            this.EditContactButton.Size = new System.Drawing.Size(23, 22);
+            this.EditContactButton.Text = "Редактировать текущий контакт";
+            this.EditContactButton.Click += new System.EventHandler(this.EditContactButton_Click);
+            // 
+            // RemoveContactButton
+            // 
+            this.RemoveContactButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.RemoveContactButton.Image = ((System.Drawing.Image)(resources.GetObject("RemoveContactButton.Image")));
+            this.RemoveContactButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.RemoveContactButton.Name = "RemoveContactButton";
+            this.RemoveContactButton.Size = new System.Drawing.Size(23, 22);
+            this.RemoveContactButton.Text = "Удалить текущий контакт";
+            this.RemoveContactButton.Click += new System.EventHandler(this.RemoveContactButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 417);
             this.Controls.Add(this.toolStripContactsApp);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxContactsApp);
             this.Controls.Add(this.menuStripContactsApp);
             this.MainMenuStrip = this.menuStripContactsApp;
             this.Name = "MainForm";
             this.Text = "ContactsApp";
             this.menuStripContactsApp.ResumeLayout(false);
             this.menuStripContactsApp.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxContactsApp.ResumeLayout(false);
+            this.groupBoxContactsApp.PerformLayout();
             this.toolStripContactsApp.ResumeLayout(false);
             this.toolStripContactsApp.PerformLayout();
             this.ResumeLayout(false);
@@ -363,7 +366,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Label LabelSearch;
         private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxContactsApp;
         private System.Windows.Forms.ListBox contactListBox;
         private System.Windows.Forms.ToolStrip toolStripContactsApp;
         private System.Windows.Forms.ToolStripButton AddContactButton;

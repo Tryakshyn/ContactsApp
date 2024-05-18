@@ -13,6 +13,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ContactApp
 {
+    /// <summary>
+    /// Форма, позволяющая добавлять новые и редоактировать текущие контакты
+    /// </summary>
     public partial class AddEditContactForm : Form
     {
         public bool flag = false;

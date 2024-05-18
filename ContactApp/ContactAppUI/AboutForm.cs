@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace ContactApp
 {
+    /// <summary>
+    ///  Форма, описывающая программу
+    /// </summary>
     public partial class AboutForm : Form
     {
         public AboutForm()
