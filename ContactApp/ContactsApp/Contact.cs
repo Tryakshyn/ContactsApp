@@ -12,9 +12,9 @@ namespace ContactsApp
     public class Contact
     {
         /// <summary>
-        /// Идентификатор контакта
+        /// Идентификатор контакта в соц. сети VK
         /// </summary>
-        private static int contactId = -1;
+        private string vkId;
         /// <summary>
         /// Имя
         /// </summary>
@@ -24,23 +24,30 @@ namespace ContactsApp
         /// </summary>
         private string lastName;
         /// <summary>
-        /// Телефон
+        /// Номмер телефона
         /// </summary>
         private string phone;
         /// <summary>
         /// Электронная почта
         /// </summary>
         private string email;
-
-        public int ContactId
+        /// <summary>
+        /// Дата рождения
+        /// </summary>
+        private DateTime birthday;
+        public string VkId
         {
             get
             {
-                return contactId;
+                return vkId;
             }
             set
             {
-                contactId++;
+                if (value.Length > 15)
+                {
+                    throw new ArgumentException("Id VK не может быть длинее 15 символов");
+                }
+                vkId = value;
             }
         }
         public string FirstName
@@ -53,7 +60,7 @@ namespace ContactsApp
             {
                 if (value.Length > 50)
                 {
-                    throw new ArgumentException("Поле не должно быть пустым и должно быть короче 50 символов");
+                    throw new ArgumentException("Имя должно быть короче 50 символов");
                 }
                 firstName = value;
             }
@@ -69,7 +76,7 @@ namespace ContactsApp
             {
                 if (value.Length > 50)
                 {
-                    throw new ArgumentException("Имя должно быть короче 50 символов");
+                    throw new ArgumentException("Фамилия должна быть короче 50 символов");
                 }
                 lastName = value;
             }
@@ -97,13 +104,32 @@ namespace ContactsApp
                 email = value; 
             }
         }
-        public Contact(string firstName, string lastName, string phone, string email)
+        public DateTime Birthday
         {
-            this.ContactId = ContactId;
+            get
+            {
+                return birthday;
+            }
+            set
+            {
+                if (value.Year < 1900)
+                {
+                    throw new ArgumentException("Некорректная дата рождения! Год не может быть ранее, чем 1900 год");
+                }
+                else if (birthday != value)
+                {
+                    birthday = value;
+                }
+            }
+        }
+        public Contact(string firstName, string lastName, string phone, string email, DateTime birthday, string vkId)
+        {
             FirstName = firstName;
             LastName = lastName;
             Phone = phone;
             Email = email;
+            Birthday = birthday;
+            VkId = vkId;
         }
         public Contact()
         {

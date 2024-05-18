@@ -13,13 +13,13 @@ namespace ContactsApp
         /// <summary>
         /// Функция, выполняющая функцию сериализации
         /// </summary>
-        public static void SaveFile(Project data)
+        public static void SaveFile(Project project)
         {
             JsonSerializer serializer = new JsonSerializer();
             using (StreamWriter sw = new StreamWriter((@"C:\Users\Андрей\Desktop\ContactApp.txt")))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
-                serializer.Serialize(writer, data);
+                serializer.Serialize(writer, project);
             }
         }
         /// <summary>
@@ -27,12 +27,14 @@ namespace ContactsApp
         /// </summary>
         public static Project LoadFile()
         {
+            Project project = null;
             JsonSerializer serializer = new JsonSerializer();
             using (StreamReader sr = new StreamReader(@"C:\Users\Андрей\Desktop\ContactApp.txt"))
             using (JsonReader reader = new JsonTextReader(sr))
             {
-                return (Project)serializer.Deserialize<Project>(reader);
+                project = serializer.Deserialize<Project>(reader);
             }
+            return project;
         }
     }
 }

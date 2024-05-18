@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,10 +13,21 @@ namespace ContactsApp
     /// </summary>
     public class Project
     {
-        public List<Contact> сontactList;
-        public Project()
+        private List<Contact> _сontactList;
+        public List<Contact> ContactList
         {
-            сontactList = new List<Contact>();
+            get 
+            { 
+                return _сontactList;
+            }
+            set 
+            {
+                _сontactList = value; 
+            }
+        }
+        public Project(List<Contact> contactList)
+        {
+            ContactList = contactList;
         }
     }
 }
