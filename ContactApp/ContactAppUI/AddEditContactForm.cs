@@ -42,21 +42,21 @@ namespace ContactApp
             {
                 string firstname = firstnameBox.Text;
                 string lastname = lastnameBox.Text;
-                string phone = phoneBox.Text;
+                PhoneNumber phonenumber = new PhoneNumber((string)Convert.ToString(phoneBox.Text));
                 string email = emailBox.Text;
                 string vkid = vkidBox.Text;
                 DateTime birthday = birthdayTimePicker.Value;
                 if (Contacts == null)
                 {
-                    Contacts = new Contact(firstname, lastname, phone, email, birthday, vkid);
+                    Contacts = new Contact(firstname, lastname, birthday, phonenumber, email, vkid);
                 }
                 else
                 {
                     Contacts.FirstName = firstname;
                     Contacts.LastName = lastname;
-                    Contacts.Phone = phone;
-                    Contacts.Email = email;
                     Contacts.Birthday = birthday;
+                    Contacts.phoneNumber = phonenumber;
+                    Contacts.Email = email;
                     Contacts.VkId = vkid;                               
                 }
                 flag = true;
@@ -80,7 +80,7 @@ namespace ContactApp
             {
                 firstnameBox.Text = Contacts.FirstName;
                 lastnameBox.Text = Contacts.LastName;
-                phoneBox.Text = Contacts.Phone;
+                phoneBox.Text = Contacts.phoneNumber.Number.ToString();
                 emailBox.Text = Contacts.Email;
                 birthdayTimePicker.Value = Contacts.Birthday;
                 vkidBox.Text = Contacts.VkId;

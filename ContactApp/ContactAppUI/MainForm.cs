@@ -24,9 +24,13 @@ namespace ContactAppUI
         public Project ContactsListProject
         {
             get
-            { return _contactsListProject; }
+            { 
+                return _contactsListProject; 
+            }
             set
-            { _contactsListProject = value; }
+            {
+                _contactsListProject = value; 
+            }
         }
         public MainForm()
         {
@@ -159,7 +163,7 @@ namespace ContactAppUI
             emailBox.Text = contact.Email;
             vkidBox.Text = contact.VkId;
             birthdayTimePicker.Text = contact.Birthday.ToString("d");
-            phoneBox.Text = contact.Phone;
+            phoneBox.Text = contact.phoneNumber.Number.ToString();
         }
     }
 }

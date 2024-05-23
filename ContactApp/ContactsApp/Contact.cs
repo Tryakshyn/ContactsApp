@@ -24,9 +24,9 @@ namespace ContactsApp
         /// </summary>
         private string lastName;
         /// <summary>
-        /// Номмер телефона
+        /// Обьект класса номер телефона
         /// </summary>
-        private string phone;
+        private PhoneNumber phonenumber;
         /// <summary>
         /// Электронная почта
         /// </summary>
@@ -43,9 +43,14 @@ namespace ContactsApp
             }
             set
             {
+                if (value.Length == 0)
+                {
+                    throw new ArgumentException("Поле имя не может быть пустым");
+                }
                 if (value.Length > 50)
                 {
-                    throw new ArgumentException("Имя должно быть короче 50 символов");
+                    var name = nameof(FirstName);
+                    throw new ArgumentException($"Длина {name} равна {value.Length}, " + $"а должно быть меньше 50.", name);
                 }
                 firstName = value;
             }
@@ -59,9 +64,14 @@ namespace ContactsApp
             }
             set
             {
+                if (value.Length == 0)
+                {
+                    throw new ArgumentException("Поле фамилия не может быть пустым");
+                }
                 if (value.Length > 50)
                 {
-                    throw new ArgumentException("Фамилия должна быть короче 50 символов");
+                    var name = nameof(LastName);
+                    throw new ArgumentException($"Длина {name} равна {value.Length}, " + $"а должно быть меньше 50.", name);
                 }
                 lastName = value;
             }
@@ -81,19 +91,15 @@ namespace ContactsApp
                 birthday = value;
             }
         }
-        public string Phone
+        public PhoneNumber phoneNumber
         {
             get
             {
-                return phone;
+                return phonenumber;
             }
             set
             {
-                if (value.Length == 12 && value[0] == '+' && value[1] == '7')
-                {
-                    phone = value;
-                }
-                else throw new ArgumentException("Номер должен состоять из 12 цифр и начинаться с +7");
+                phonenumber = value;
             }
         }
 
@@ -104,12 +110,17 @@ namespace ContactsApp
                 return email; 
             }
             set 
-            { 
-               if (value.Length < 50 && value.Contains("@"))
+            {
+                if (value.Length > 50)
                 {
-                    email = value;
+                    var name = nameof(LastName);
+                    throw new ArgumentException($"Длина {name} равна {value.Length}, " + $"а должно быть меньше 50.", name);
                 }
-                else throw new ArgumentException("Email не может быть длинее 50 символов и должен обязательно содержать символ @ ");
+                if (!value.Contains("@"))
+                {
+                    throw new ArgumentException("Поле электронной почты должно содержать символ @");
+                }
+                email = value;
             }
         }
         public string VkId
@@ -122,18 +133,19 @@ namespace ContactsApp
             {
                 if (value.Length > 15)
                 {
-                    throw new ArgumentException("Id VK не может быть длинее 15 символов");
+                    var name = nameof(LastName);
+                    throw new ArgumentException($"Длина {name} равна {value.Length}, " + $"а должно быть меньше 15.", name);
                 }
                 vkId = value;
             }
         }
-        public Contact(string firstName, string lastName, string phone, string email, DateTime birthday, string vkId)
+        public Contact(string firstName, string lastName, DateTime birthday, PhoneNumber phonenumber, string email, string vkId)
         {
             FirstName = firstName;
             LastName = lastName;
-            Phone = phone;
-            Email = email;
             Birthday = birthday;
+            phoneNumber = phonenumber;
+            Email = email;
             VkId = vkId;
         }
         public Contact()
